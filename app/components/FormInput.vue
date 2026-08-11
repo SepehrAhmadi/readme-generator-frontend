@@ -74,7 +74,7 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-    <div class="xl:w-[40%] flex justify-center items-center gap-4">
+    <div class="xl:w-[40%] flex justify-center items-start gap-4">
         <div class="flex-1">
             <div class="relative flex items-center">
                 <Input
@@ -131,6 +131,19 @@ const handleSubmit = async () => {
                     {{ handlerStore.errorMessage }}
                 </p>
             </Transition>
+            <Transition
+                enter-active-class="transition duration-200 ease-out"
+                enter-from-class="opacity-0 translate-y-2"
+                enter-to-class="opacity-100 translate-y-0"
+                leave-active-class="transition duration-150 ease-in"
+                leave-from-class="opacity-100 translate-y-0"
+                leave-to-class="opacity-0 translate-y-2"
+            >
+                <div v-if="handlerStore.loading" class="w-full flex justify-start items-center pt-3 -translate-x-1.25">
+                    <Orb variant="G2" :size="40" />
+                    <Generatring />
+                </div>
+            </Transition>
         </div>
 
         <Button
@@ -139,17 +152,11 @@ const handleSubmit = async () => {
             :disabled="!isValidUrl || isChecking"
             @click="handleSubmit"
         >
-            <span v-if="isChecking">
-                Checking...
-            </span>
+            <span v-if="isChecking"> Checking... </span>
 
             <span v-else>
                 {{ buttonText }}
             </span>
         </Button>
     </div>
-
-    <div class="flex justify-center items-center gap-4">
-    </div>
 </template>
-

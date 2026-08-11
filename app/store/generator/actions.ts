@@ -8,7 +8,7 @@ export function useGeneratorActions(state: StateType) {
   const createOrUpdateRepository = (githubUrl: string) => {
     const axios = useApi();
     const handlerStore = useHandlerStore();
-    handlerStore.loading = true;
+    handlerStore.loadingBtn = true;
 
     return axios
       .post("/repository", { githubUrl })
@@ -24,7 +24,7 @@ export function useGeneratorActions(state: StateType) {
       })
       .finally(() => {
         setTimeout(() => {
-          handlerStore.loading = false;
+          handlerStore.loadingBtn = false;
         }, 500);
       });
   };
@@ -38,7 +38,6 @@ export function useGeneratorActions(state: StateType) {
       .get(`/generationJob/${repositoryId}/generate`)
       .then((res) => {
         state.jobResult.value = res.data.data;
-        handlerStore.loading = false;
       })
       .catch((err) => {
         console.log(err);
@@ -48,9 +47,7 @@ export function useGeneratorActions(state: StateType) {
         handlerStore.setError(message);
       })
       .finally(() => {
-        setTimeout(() => {
           handlerStore.loading = false;
-        }, 500);
       });
   };
 
