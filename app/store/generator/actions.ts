@@ -17,7 +17,9 @@ export function useGeneratorActions(state: StateType) {
       })
       .catch((err) => {
         console.log(err);
-        const message = err.response?.data?.message || "Something went wrong. Please try again.";
+        const message =
+          err.response?.data?.message ||
+          "Something went wrong. Please try again.";
         handlerStore.setError(message);
       })
       .finally(() => {
@@ -36,10 +38,13 @@ export function useGeneratorActions(state: StateType) {
       .get(`/generationJob/${repositoryId}/generate`)
       .then((res) => {
         state.jobResult.value = res.data.data;
+        handlerStore.loading = false;
       })
       .catch((err) => {
         console.log(err);
-        const message = err.response?.data?.message || "Something went wrong. Please try again.";
+        const message =
+          err.response?.data?.message ||
+          "Something went wrong. Please try again.";
         handlerStore.setError(message);
       })
       .finally(() => {
@@ -61,7 +66,9 @@ export function useGeneratorActions(state: StateType) {
       })
       .catch((err) => {
         console.log(err);
-        const message = err.response?.data?.message || "Something went wrong. Please try again.";
+        const message =
+          err.response?.data?.message ||
+          "Something went wrong. Please try again.";
         handlerStore.setError(message);
       })
       .finally(() => {

@@ -35,13 +35,8 @@ const validateGithubUrl = (url: string = githubUrl.value): boolean => {
 watch(githubUrl, (newValue) => {
     validateGithubUrl(newValue);
 
-    // با تغییر URL، نتیجه قبلی دیگر معتبر نیست
     hasChecked.value = false;
-
-    // خطای قبلی را پاک می‌کنیم
     handlerStore.errorMessage = "";
-
-    // اگر URL تغییر کرد، دکمه دوباره Submit باشد
     buttonText.value = "Submit";
 });
 
@@ -154,6 +149,9 @@ const handleSubmit = async () => {
                 {{ buttonText }}
             </span>
         </Button>
+    </div>
+
+    <div class="flex justify-center items-center gap-4">
     </div>
 </template>
 
