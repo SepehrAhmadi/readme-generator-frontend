@@ -17,10 +17,8 @@ const buttonText = ref<string>("Submit");
 const githubUrl = ref<string>("");
 const isValidUrl = ref<boolean>(false);
 
-// آیا URL بررسی شده؟
 const hasChecked = ref<boolean>(false);
 
-// آیا در حال بررسی repository هستیم؟
 const isChecking = ref<boolean>(false);
 
 const validateGithubUrl = (url: string = githubUrl.value): boolean => {
