@@ -1,8 +1,8 @@
 <template>
-    <div class="container mx-auto">
-        <div class="flex flex-col justify-center items-center">
+    <div class="container mx-auto py-16">
+        <div class="flex flex-col justify-center items-center gap-10">
             <AppTitle />
-            <Button>click me</Button>
+            <FormInput />
         </div>
     </div>
 </template>
