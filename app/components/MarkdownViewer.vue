@@ -112,7 +112,7 @@ onBeforeUnmount(() => {
                 <pre
                     v-else
                     key="source"
-                    class="overflow-y-auto rounded-md p-4 font-mono text-sm leading-relaxed break-words"
+                    class="overflow-y-auto rounded-md p-4 font-mono text-sm leading-relaxed break-all text-wrap"
                 ><code>{{ content }}</code></pre>
             </Transition>
         </div>
